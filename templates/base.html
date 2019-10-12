@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+  <head>
+    {% block head %}
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+    <meta charset="utf-8" />
+    {% if FEED_ALL_ATOM %}
+    <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+    {% endif %}
+    {% if FEED_ALL_RSS %}
+    <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
+    {% endif %}
+    {% if FEED_ATOM %}
+    <link href="{{ FEED_DOMAIN }}/{%if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+    {% endif %}
+    {% if FEED_RSS %}
+    <link href="{{ FEED_DOMAIN }}/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    {% endif %}
+    {% if CATEGORY_FEED_ATOM and category %}
+    <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+    {% endif %}
+    {% if CATEGORY_FEED_RSS and category %}
+    <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_RSS_URL %}{{ CATEGORY_FEED_RSS_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+    {% endif %}
+    {% if TAG_FEED_ATOM and tag %}
+    <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_ATOM.format(slug=tag.slug) }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+    {% endif %}
+    {% if TAG_FEED_RSS and tag %}
+    <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_RSS_URL %}{{ TAG_FEED_RSS_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_RSS.format(slug=tag.slug) }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+    {% endif %}
+
+    <link type="text/css" rel="stylesheet" href="{{ SITEURL
+                }}/theme/css/style.css"/>
+    {% block meta %}
+    <meta property="og:title" content="{% if page %}{{ page.title }} | {% endif %}Mosab Ibrahim"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="{% if page %}{{ page.url }}{% else
+                           %}https://mosab.co.uk{% endif %}"/>
+    <meta property="og:description"
+          content="A passionate self-taught software engineer, a father to two lovely kids, a husband to an amazing wife, supposedly a geek, a caffeine junkie, a food lover, an open source/free software believer, and in a love/hate relationship with running. Originally from Cairo, Egypt. Currently living in London, United Kingdom."/>
+    <meta property="og:image" content="{{ SITE_URL }}/theme/images/bitmoji-mosab.png"/>
+    <meta property="fb:app_id" content="153545408690727"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    {% endblock meta %}
+
+
+    <link rel="shortcut icon" type="image/png" href="{{ SITEURL }}/theme/favicon.ico"/>
+
+    {% endblock head %}
+  </head>
+
+  <body>
+    <h1 id="title"><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+
+    <div id="subtitle">
+      {{ SITESUBTITLE }}
+
+      <div class="menu">
+        <ul class="menu">
+          <li class="menu">
+            <a href="{{ SITEURL }}/">Home</a> /
+          </li>
+
+          <li class="menu">
+            <a href="{{ SITEURL }}/pages/blog.html">Blog</a> /
+          </li>
+
+          <li class="menu">
+            <a href="{{ SITEURL }}/pages/projects.html">Projects</a> /
+          </li>
+
+          <li class="menu">
+            <a href="{{ SITEURL }}/pages/resume.html">Resume</a> /
+          </li>
+          <li class="menu">
+            <a href="{{ SITEURL }}/pages/about.html">About</a> /
+          </li>
+          <li class="menu">
+            <a href="{{ SITEURL }}/pages/contact.html">Contact</a>
+          </li>
+          {% for p in pages %}
+          <!--<li class="menu{% if p == page %} selected{% endif %}">
+            <a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
+            {% if not loop.last %}
+            /
+            {% endif %}
+          </li>-->
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div id="body">
+      {% block content %}
+      {% endblock %}
+
+      <div id="footer">
+        <hr/>
+        This website is hosted on <a href="https://mbsy.co/BhBvS">Dreamhost</a>.
+        <br/>
+        &copy; 1986 - 2019 (@mos3abof)
+        <br/>
+
+        <p>
+        <a href="http://www.catb.org/hacker-emblem/"><img src="{{ SITEURL
+                 }}/theme/images/glider.png" alt="hacker emblem"/></a>
+
+        <a href="https://www.debian.org"><img src="{{ SITEURL
+                 }}/theme/images/debian-logo.png" alt="Debian logo"/></a>
+        </p>
+      </div>
+  </body>
+</html>
