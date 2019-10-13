@@ -33,7 +33,7 @@ If you have any feedback please don't hesitate to
 
 {% endblock %}
       <h2>Recent Articles</h2>
-      <ul>
+      <!--<ul>
         <li>
           - <code>[2019-Jan-13]</code>
           <a href="https://medium.com/@mos3abof/2018-state-of-the-union-f71deb220447">2018: State of the Union</a>.
@@ -73,17 +73,17 @@ If you have any feedback please don't hesitate to
           <a href="https://mos3abof.blogspot.com.eg/2006/09/blog-post_1215.html">Star Wars: Pluto</a>.
           [Arabic]
         </li>
-      </ul>
+      </ul>-->
 
-<!--<ul>
+<ul>
   {% for article in articles_page.object_list %}
   <li>
-    - <code>[2019-Jan-13]</code>
+    - <code>[{{ article.locale_date }}]</code>
     <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>.
     [English]
   </li>
   {% endfor %}
-</ul>-->
+</ul>
 
 <p>
 <a href="{{ SITEUR }}/archives.html">Read more &raquo;</a>

@@ -3,18 +3,22 @@
 {% block title %}Blog | {{ SITENAME }}{% endblock %}
 
 {% block content %}
-      <h4><a href="index.html">Home</a> &raquo; Blog</h4>
+<h4><a href="index.html">Home</a> &raquo; Blog</h4>
 
-      <h2>Articles</h2>
+<h2>Articles</h2>
 
-      <ul>
+<ul>
 
-{% for article in dates %}
-<li>
-  - <code>[{{ article.locale_date }}]</code>
+  {% for article in dates %}
+  <li>
+    - <code>[{{ article.locale_date }}]</code>
     <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>. [English]
-        </li>
-{% endfor %}
+  </li>
+  {% endfor %}
 
-      </ul>
+</ul>
+<p>
+You can find more on either my <a href="https://medium.com/@mos3abof">English blog</a>,
+or my <a href="https://mos3abof.blogspot.com">Arabic blog</a>.
+</p>
 {% endblock %}
