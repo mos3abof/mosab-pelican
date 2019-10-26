@@ -19,7 +19,7 @@
 <meta name="tags" content="{{tag}}" />
 {% endfor %}
 <link type="text/css" rel="stylesheet" href="{{ SITEURL
-                           }}/theme/css/article.css"/>
+                                      }}/theme/css/article.css"/>
 
 {% endblock %}
 
@@ -55,6 +55,21 @@
         {{ article.content }}
       </div><!-- /.entry-content -->
     </section>
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = {{ SITEURL }}/{{ article.url }} ;  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = {{ SITEURL }}/{{ article.url }}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mosab-ibrahim.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
   </div>
 
   <div class="col-1">&nbsp;</div>
