@@ -23,6 +23,19 @@
 
 {% endblock %}
 
+{% block meta %}
+
+<meta property="og:title" content="{{ article.title }} | Mosab Ibrahim"/>
+    <meta property="og:type" content="type"/>
+    <meta property="og:url" content="{{ article.url }} "/>
+    <meta property="og:description"
+          content="{% if article.description %} {{ article.description }} {%
+                    endif %}"/>
+    <meta property="og:image" content="{{ SITE_URL }}/theme/images/bitmoji-mosab.png"/>
+    <meta property="fb:app_id" content="153545408690727"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% endblock %}
+
 {% block content %}
 <div class="row">
   <div class="col-8">
