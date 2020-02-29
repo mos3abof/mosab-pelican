@@ -2,94 +2,92 @@
 {% block content %}
 {% block content_title %}
 
-<h2>Hello, World!</h2>
-<p>
-<img src="{{ SITE_URL }}/theme/images/bitmoji-mosab.png" alt="Mosab Ibrahim" class="float-right"/>
 
-I am a passionate self-taught software engineer (and lately site reliability
-engineer), a father to two lovely kids, a husband to an
 
-<a href="https://www.amiraqassim.com">amazing wife</a>, supposedly a geek, a
-caffeine junkie, a food lover, an open source/free software believer, and in a
-love/hate relationship with running. Originally from Cairo, Egypt.  Currently
-living in London, United Kingdom.
-</p>
+<!-- Main jumbotron -->
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <!-- Intro -->
+        <h2 class="display-3">Hello, world!</h2>
+        <p>
+          I am a passionate self-taught software engineer (and lately site
+          reliability engineer), a father to two lovely kids, a husband to an
+          <a href="https://www.amiraqassim.com/">amazing wife</a>, supposedly
+          a geek, a caffeine junkie, a food lover, an open source/free
+          software believer, and in a love/hate relationship with running.
+          Originally from Cairo, Egypt. Currently living in London, United
+          Kingdom.
+        </p>
 
-<p>
-You can check <a href="{{ SITEURL }}/pages/resume.html">my resume</a>, jump to the bottom of the
-page to sees some recent blog posts, or go to <a href="blog.html">my blog</a>,
-see what I managed to do in the <a href="{{ SITEURL
-  }}/pages/2018.html">2018</a> &amp; <a href="{{ SITEURL
-  }}/pages/2019.html">2019</a>, and what I plan on doing in  <a href="{{ SITEURL
-  }}/pages/2020.html">2020</a>, or hang around and check the rest of the links on this
-website.
-</p>
+        <p>
+          You can check <a href="{{ SITEURL }}/pages/resume.html">my resume</a>, jump to the bottom of the
+          page to sees some recent blog posts, or go to <a href="blog.html">my
+          blog</a>, see what I managed to do in the <a href="{{ SITEURL
+  }}/pages/2018.html">2018</a> &amp;
+          <a href="{{ SITEURL
+  }}/pages/2019.html">2019</a>, and what I plan on doing in <a href="{{ SITEURL
+  }}/pages/2020.html">2020</a>,
+          or hang around and check the rest of the links on this website.
+        </p>
 
-<p>
-Over the years, I have compiled and distilled a list of
-<a href="{{ SITEURL }}/pages/resources.html">lists of useful resources</a>.
-If you have any feedback please don't hesitate to
-<a href="{{ SITEURL }}/pages/contact.html">send it my way</a>.
-</p>
+        <p>
+          Over the years, I have compiled and distilled a list of <a
+          href="{{ SITEURL }}/pages/resources.html">lists of useful resources</a>. If you have any feedback
+          please don't hesitate to <a href="{{ SITEURL }}/pages/contact.html">send it my way</a>.
+        </p>
+      </div>
+      <div class="col-md-4">
+        <img src="{{ SITE_URL }}/theme/images/mosab-bitmoji.png" />
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 {% endblock %}
-<h2>Latest Articles</h2>
-<!--<ul>
-  <li>
-  - <code>[2019-Jan-13]</code>
-  <a href="https://medium.com/@mos3abof/2018-state-of-the-union-f71deb220447">2018: State of the Union</a>.
-  [English]
-  </li>
-  <li>
-  - <code>[2016-May-10]</code>
-  <a href="https://medium.com/@mos3abof/how-to-install-firefox-on-debian-jessie-90fa135e9e9">How To Install
-  Firefox on Debian Jessie</a>.
-  [English]
-  </li>
-  <li>
-  - <code>[2016-May-09]</code>
-  <a href="https://medium.com/@mos3abof/new-version-of-power-close-b7b19dd95a1f">New Version of Power
-  Close</a>.
-  [English]
-  </li>
 
-  <li>
-  - <code>[2016-May-03]</code>
-  <a href="https://mos3abof.blogspot.com/2017/11/blog-post.html">Grid Status Now: Nine Months Of Data Archives</a>.
-  [Arabic]
-  </li>
-  <li>
-  - <code>[2014-Oct-10]</code>
-  <a href="https://medium.com/@mos3abof/firefox-power-close-6a621e58180e">Firefox Power Close</a>.
-  [English]
-  </li>
-  <li>
-  - <code>[2013-Jun-17]</code>
-  <a href="https://medium.com/@mos3abof/toggl-target-an-open-source-project-of-my-own-8f3546759992#.l7zkk97q6">Toggl
-  Target : An Open Source Project</a>.
-  [English]
-  </li>
-  <li>
-  - <code>[2006-Sep-12]</code>
-  <a href="https://mos3abof.blogspot.com.eg/2006/09/blog-post_1215.html">Star Wars: Pluto</a>.
-  [Arabic]
-  </li>
-  </ul>-->
+<div class="container">
+  <!-- Latest Articles -->
+  <div class="row">
+    <div class="col-md-12 post-listing">
+      <h2>Latest Articles</h2>
+      <ul>
+        {% for article in articles_page.object_list %}
+        <li>
+          - <code class="d-none d-lg-inline">[{{ article.locale_date }}]</code>
+          <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>.
+        </li>
+        {% endfor %}
 
-  <ul>
-    {% for article in articles_page.object_list %}
-    <li>
-      - <code>[{{ article.locale_date }}]</code>
-      <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>.
-      [English]
-    </li>
-    {% endfor %}
-  </ul>
+        <!--<li>
+        - <code>[2016-May-03]</code>
+        <a href="https://mos3abof.blogspot.com/2017/11/blog-post.html">Grid Status Now: Nine Months Of Data Archives</a>.
+        [Arabic]
+        </li>
 
-  <p>
-  <a href="{{ SITEUR }}/archives.html">Read more &raquo;</a>
-  </p>
-  {% if articles_page.has_other_pages() %}
-  {% include 'pagination.html' %}
-  {% endif %}
-  {% endblock content %}
+        <li>
+        - <code>[2006-Sep-12]</code>
+        <a href="https://mos3abof.blogspot.com.eg/2006/09/blog-post_1215.html">Star Wars: Pluto</a>.
+        [Arabic]
+        </li>-->
+      </ul>
+
+      <p>
+      <a href="{{ SITEUR }}/archives.html">Read more &raquo;</a>
+      </p>
+
+      {% if articles_page.has_other_pages() %}
+        {% include 'pagination.html' %}
+      {% endif %}
+
+    </div>
+  </div>
+
+
+</div> <!-- /container -->
+
+
+{% endblock content %}
