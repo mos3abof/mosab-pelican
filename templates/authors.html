@@ -3,10 +3,18 @@
 {% block title %}{{ SITENAME }} - Authors{% endblock %}
 
 {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <br />
     <h1>Authors on {{ SITENAME }}</h1>
+    <br />
     <ul>
-    {% for author, articles in authors|sort %}
-        <li><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a> ({{ articles|count }})</li>
-    {% endfor %}
+      {% for author, articles in authors|sort %}
+          <li><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a> ({{ articles|count }})</li>
+      {% endfor %}
     </ul>
+    </div>
+  </div>
+</div>
 {% endblock %}
